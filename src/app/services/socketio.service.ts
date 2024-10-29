@@ -25,12 +25,9 @@ export class SocketioService {
     shrinkTextIfOverflowing,
     transparentResults
   ) {
-    this.socket = socketIOClient(
-      shouldEndpointBeHeroku
-        ? 'https://cook-up-a-crossword.herokuapp.com/'
-        : 'http://localhost:5000',
-      { transports: ['websocket'] }
-    );
+    this.socket = socketIOClient('http://localhost:5000', {
+      transports: ['websocket'],
+    });
 
     this.startButtonActive = startButtonActive;
     this.serverIsIndeedWorking = serverIsIndeedWorking;
